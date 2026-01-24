@@ -3,6 +3,12 @@ using System.Linq;
 
 using UnityEngine;
 
+/*
+•	Controls each boat’s movement each frame.
+•	Implements three flocking behaviors: alignment(match neighbors’ velocity), cohesion(move toward neighbors’ center), separation(avoid crowding).
+•	Reads all behavior numbers (speeds, radii, weights) from BoatManager.Singleton, so each boat pulls its parameters from that central place.
+*/
+
 public class BoatAutoPilot : MonoBehaviour
 {
     private Vector3 velocity = Vector3.zero;

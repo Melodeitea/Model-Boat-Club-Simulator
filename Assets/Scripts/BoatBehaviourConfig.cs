@@ -1,4 +1,6 @@
 using UnityEngine;
+//centralize behavior into a ScriptableObject
+
 
 [CreateAssetMenu(fileName = "BoatBehaviourConfig", menuName = "Scriptable Objects/BoatBehaviourConfig")]
 public class BoatBehaviourConfig : ScriptableObject

@@ -3,36 +3,21 @@ using UnityEngine;
 
 public class BoatManager : MonoBehaviour
 {
-    // BoatManager is responsible for spawning boats and managing the simulation space.
-    // I deliberately keep all behaviour logic out of this class.
-
-
     private static BoatManager singleton = null;
 
     public static BoatManager Singleton
     {
-        get { return singleton; }
-        private set { singleton = value; }
+        get => singleton;
+        private set => singleton = value;
     }
 
-    [SerializeField]
-    private float width = 16f;
+    [SerializeField] private float width = 16f;
+    [SerializeField] private float length = 9f;
+    [SerializeField] private int SpawningCount = 20;
 
-    [SerializeField]
-    private float length = 9f;
-
-    [Range(0, 300)]
-    [SerializeField]
-    private int SpawningCount;
-
-    [SerializeField]
-    private GameObject boatHouseA = null;
-
-    [SerializeField]
-    private GameObject boatHouseB = null;
-
-    [SerializeField]
-    private GameObject boatHouseC = null;
+    // replaced hard-coded references with a list of prefabs
+    // can now add/remove variants in the Inspector without touching the code
+    [SerializeField] private List<GameObject> boatPrefabs = new List<GameObject>();
 
     private List<GameObject> boatsInstances = new List<GameObject>();
 
@@ -43,18 +28,15 @@ public class BoatManager : MonoBehaviour
 
     private void OnDestroy()
     {
-        if (singleton == this)
-        {
-            singleton = null;
-        }
+        if (singleton == this) singleton = null;
     }
 
     private void Start()
     {
-        // On génère un nombre de bateau au départ.
+        // On génère un nombre de bateau au départ
         for (int i = 0; i < SpawningCount; i++)
         {
-            // On choisi une position et une orientation au hasard dans la zone de jeu.
+            // On choisi une position et une orientation au hasard dans la zone de jeu
             Vector3 randomPosition = new Vector3(
                 (Random.value - 0.5f) * width,
                 0f,
@@ -68,41 +50,24 @@ public class BoatManager : MonoBehaviour
 
     private void SpawnBoat(Vector3 worldPosition, Quaternion worldRotation)
     {
-        // Le bateau qu'on va instancier
-        GameObject boatToInstanciate = GetRandomBoat();
+        // pick a random prefab from the list instead of hard-coded A/B/C
+        GameObject boatToInstantiate = GetRandomBoat();
+        if (boatToInstantiate == null) return;
 
-        // Créer une instance (qu'on attache directement en enfant de notre transform)
-        GameObject boatInstance = Instantiate(
-            boatToInstanciate,
-            worldPosition,
-            worldRotation,
-            transform
-        );
+        // I instantiate the boat as a child of BoatManager
+        GameObject boatInstance = Instantiate(boatToInstantiate, worldPosition, worldRotation, transform);
 
-        // Rajouter cette instance à notre liste d'instances
+        // add it to my instances list for border patrol
         boatsInstances.Add(boatInstance);
     }
 
+    // select a random prefab dynamically from the list
     private GameObject GetRandomBoat()
     {
-        GameObject randomBoat = null;
+        if (boatPrefabs.Count == 0) return null;
 
-        // On prend une variable aléatoire entre 0.000 et 1.000
-        float randomValue = Random.value;
-        if (randomValue < 0.333f)
-        {
-            randomBoat = boatHouseA;
-        }
-        else if (randomValue < 0.666f)
-        {
-            randomBoat = boatHouseB;
-        }
-        else
-        {
-            randomBoat = boatHouseC;
-        }
-
-        return randomBoat;
+        int index = Random.Range(0, boatPrefabs.Count);
+        return boatPrefabs[index];
     }
 
     private void LateUpdate()
@@ -114,33 +79,28 @@ public class BoatManager : MonoBehaviour
     {
         // On vérifie que nos bateaux sont dans la zone de jeu
         // On les téléporte au côté opposé s'ils en sortent
-        int boatCount = boatsInstances.Count;
-        for (int i = 0; i < boatCount; i++)
+        for (int i = 0; i < boatsInstances.Count; i++)
         {
             GameObject boatInstance = boatsInstances[i];
             Vector3 localPosition = boatInstance.transform.localPosition;
             bool positionHasChanged = false;
 
-            // Left border?
             if (localPosition.x < -width * 0.5f)
             {
                 localPosition.x += width;
                 positionHasChanged = true;
             }
-            // Right border?
             else if (localPosition.x > width * 0.5f)
             {
                 localPosition.x -= width;
                 positionHasChanged = true;
             }
 
-            // Top border?
             if (localPosition.z > length * 0.5f)
             {
                 localPosition.z -= length;
                 positionHasChanged = true;
             }
-            // Bottom border?
             else if (localPosition.z < -length * 0.5f)
             {
                 localPosition.z += length;
@@ -148,9 +108,7 @@ public class BoatManager : MonoBehaviour
             }
 
             if (positionHasChanged)
-            {
                 boatInstance.transform.localPosition = localPosition;
-            }
         }
     }
 

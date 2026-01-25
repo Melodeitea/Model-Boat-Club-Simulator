@@ -154,4 +154,5 @@ public class BoatAutoPilot : MonoBehaviour
         Gizmos.color = Color.salmon;
         Gizmos.DrawWireSphere(transform.position, behavior.separationRadius);
     }
+    // my brain is burning rn and i havent recovered from the shitty day i had at work yesterday yet
 }

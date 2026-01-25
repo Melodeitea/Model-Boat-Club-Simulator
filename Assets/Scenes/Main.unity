@@ -247,14 +247,7 @@ MonoBehaviour:
   boatHouseA: {fileID: 1138331384927246, guid: f4fd60554feb830408409b09d8c5f2d0, type: 3}
   boatHouseB: {fileID: 1138331384927246, guid: 9d1d0b91403a8814ab6853947579bad9, type: 3}
   boatHouseC: {fileID: 1138331384927246, guid: be18bd8f4343bb14daad0d183019b6aa, type: 3}
-  maxSpeed: 6
-  steeringSpeed: 4.5
-  maxForce: 0.03
-  neighborhoodRadius: 4
-  separationRadius: 2.4
-  separationAmount: 1.1
-  cohesionAmount: 0.3
-  alignmentAmount: 0.5
+  behaviorSettings: {fileID: 11400000, guid: 725e0cc86335aef9193d1f524fd7a644, type: 2}
 --- !u!4 &576343055
 Transform:
   m_ObjectHideFlags: 0

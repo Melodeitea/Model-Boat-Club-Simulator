@@ -246,7 +246,7 @@ MonoBehaviour:
   SpawningCount: 64
   boatHouseA: {fileID: 1821243953547054805, guid: d36fe1a9b487838169a346190ee2af02,
     type: 3}
-  boatHouseB: {fileID: 1821243953547054805, guid: cfdbe5b4b209f0c27a23072ecf70c7b1,
+  boatHouseB: {fileID: 8756222879456968758, guid: 44f6db4ea76f7e982b64953e4a1e86b9,
     type: 3}
   boatHouseC: {fileID: 1821243953547054805, guid: 453574db67fb3d3ae9dbbdea0448a97f,
     type: 3}

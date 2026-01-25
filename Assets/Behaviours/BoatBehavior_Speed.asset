@@ -10,13 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b1b814e4481224bf38000840bbb9fcd7, type: 3}
-  m_Name: BoatBehaviorSettings 1
+  m_Name: BoatBehavior_Speed
   m_EditorClassIdentifier: Assembly-CSharp::BoatBehaviorSettings
-  maxSpeed: 1.2
-  steeringSpeed: 5.4
-  maxForce: 0.132
-  neighborhoodRadius: 7.18
-  separationRadius: 1.83
-  separationAmount: 1.53
-  cohesionAmount: 2.3
-  alignmentAmount: 1.07
+  maxSpeed: 6
+  steeringSpeed: 33.9
+  maxForce: 0.379
+  neighborhoodRadius: 4
+  separationRadius: 2.4
+  separationAmount: 1.1
+  cohesionAmount: 0.3
+  alignmentAmount: 0.5

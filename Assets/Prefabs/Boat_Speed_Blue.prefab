@@ -17,7 +17,7 @@ PrefabInstance:
         type: 3}
       propertyPath: behavior
       value: 
-      objectReference: {fileID: 11400000, guid: 725e0cc86335aef9193d1f524fd7a644,
+      objectReference: {fileID: 11400000, guid: e2b09bc885056cb4e86be1ef3c9983bb,
         type: 2}
     - target: {fileID: 8249526098391356157, guid: 720dbc93a0ee9649491c3133c299de12,
         type: 3}
@@ -95,7 +95,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3300448314273660406}
-  m_Mesh: {fileID: 8083727038374076198, guid: 16feb6c12fb0c214cb37a51a70493a2f, type: 3}
+  m_Mesh: {fileID: -1190467546874737884, guid: 555ea90aa6ef59a46aec32b2b30e2122, type: 3}
 --- !u!23 &2317474356415006022
 MeshRenderer:
   m_ObjectHideFlags: 0

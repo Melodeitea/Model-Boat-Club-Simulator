@@ -244,10 +244,12 @@ MonoBehaviour:
   width: 42
   length: 32
   SpawningCount: 64
-  boatHouseA: {fileID: 1138331384927246, guid: f4fd60554feb830408409b09d8c5f2d0, type: 3}
-  boatHouseB: {fileID: 1138331384927246, guid: 9d1d0b91403a8814ab6853947579bad9, type: 3}
-  boatHouseC: {fileID: 1138331384927246, guid: be18bd8f4343bb14daad0d183019b6aa, type: 3}
-  behaviorSettings: {fileID: 11400000, guid: 725e0cc86335aef9193d1f524fd7a644, type: 2}
+  boatHouseA: {fileID: 1821243953547054805, guid: d36fe1a9b487838169a346190ee2af02,
+    type: 3}
+  boatHouseB: {fileID: 1821243953547054805, guid: cfdbe5b4b209f0c27a23072ecf70c7b1,
+    type: 3}
+  boatHouseC: {fileID: 1821243953547054805, guid: 453574db67fb3d3ae9dbbdea0448a97f,
+    type: 3}
 --- !u!4 &576343055
 Transform:
   m_ObjectHideFlags: 0
